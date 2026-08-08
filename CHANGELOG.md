@@ -18,6 +18,20 @@ is for things you can see or feel when running the app.
 
 ### Fixed
 
+- **The dependency list on the Statistics page now tells you when something is
+  actually missing.** The list is built from the packages Calibre-Web NextGen
+  declares it needs, but a few of those only apply to certain systems — one is
+  Windows-only, another is for older Python versions. On everything else they
+  were reported as "not installed", so the page hid every "not installed" row to
+  keep them out of sight, and a dependency that was genuinely absent got hidden
+  along with them. That only matters if you run from source rather than the
+  Docker image, where it is possible to end up short a package after an upgrade:
+  the page showed nothing wrong and the app failed later with an import error
+  instead. Entries that do not apply to your system are now left out at the
+  source, and anything genuinely missing is listed again. Docker users see the
+  same list as before, minus two rows that never applied. Reported by
+  @chloeroform (#1442).
+
 - **The container reported itself unhealthy, and the library count showed 0
   books.** A path cleanup landed a reference to a setting the file never
   imported, so the lookup that finds your Calibre library raised an error the
