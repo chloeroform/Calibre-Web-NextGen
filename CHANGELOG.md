@@ -29,7 +29,7 @@ is for things you can see or feel when running the app.
   the page showed nothing wrong and the app failed later with an import error
   instead. Entries that do not apply to your system are now left out at the
   source, and anything genuinely missing is listed again. Docker users see the
-  same list as before, minus two rows that never applied. Reported by
+  same list as before, minus two rows that never applied. Packaging work by
   @chloeroform (#1442).
 
 - **The container reported itself unhealthy, and the library count showed 0
